@@ -1,0 +1,71 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Algo Orange\\AlgoOrange Web UI\\AlgoOrange.Web.UI\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{6DFAA309-22ED-4CF8-B61D-9C80F94697EC}|AlgoOrange.Web.UI\\AlgoOrange.Web.UI.csproj|c:\\algo orange\\algoorange web ui\\algoorange.web.ui\\algoorange.web.ui\\pages\\stock\\stockdashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6DFAA309-22ED-4CF8-B61D-9C80F94697EC}|AlgoOrange.Web.UI\\AlgoOrange.Web.UI.csproj|solutionrelative:algoorange.web.ui\\pages\\stock\\stockdashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6DFAA309-22ED-4CF8-B61D-9C80F94697EC}|AlgoOrange.Web.UI\\AlgoOrange.Web.UI.csproj|c:\\algo orange\\algoorange web ui\\algoorange.web.ui\\algoorange.web.ui\\pages\\socialfeed\\socialdashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6DFAA309-22ED-4CF8-B61D-9C80F94697EC}|AlgoOrange.Web.UI\\AlgoOrange.Web.UI.csproj|solutionrelative:algoorange.web.ui\\pages\\socialfeed\\socialdashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6DFAA309-22ED-4CF8-B61D-9C80F94697EC}|AlgoOrange.Web.UI\\AlgoOrange.Web.UI.csproj|c:\\algo orange\\algoorange web ui\\algoorange.web.ui\\algoorange.web.ui\\pages\\travelagency\\traveldashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6DFAA309-22ED-4CF8-B61D-9C80F94697EC}|AlgoOrange.Web.UI\\AlgoOrange.Web.UI.csproj|solutionrelative:algoorange.web.ui\\pages\\travelagency\\traveldashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "TravelDashboard.cshtml",
+              "DocumentMoniker": "C:\\Algo Orange\\AlgoOrange Web UI\\AlgoOrange.Web.UI\\AlgoOrange.Web.UI\\Pages\\TravelAgency\\TravelDashboard.cshtml",
+              "RelativeDocumentMoniker": "AlgoOrange.Web.UI\\Pages\\TravelAgency\\TravelDashboard.cshtml",
+              "ToolTip": "C:\\Algo Orange\\AlgoOrange Web UI\\AlgoOrange.Web.UI\\AlgoOrange.Web.UI\\Pages\\TravelAgency\\TravelDashboard.cshtml",
+              "RelativeToolTip": "AlgoOrange.Web.UI\\Pages\\TravelAgency\\TravelDashboard.cshtml",
+              "ViewState": "AgIAAP8CAAAAAAAAAAAAAA0DAABkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-03T06:51:21.011Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "StockDashboard.cshtml",
+              "DocumentMoniker": "C:\\Algo Orange\\AlgoOrange Web UI\\AlgoOrange.Web.UI\\AlgoOrange.Web.UI\\Pages\\Stock\\StockDashboard.cshtml",
+              "RelativeDocumentMoniker": "AlgoOrange.Web.UI\\Pages\\Stock\\StockDashboard.cshtml",
+              "ToolTip": "C:\\Algo Orange\\AlgoOrange Web UI\\AlgoOrange.Web.UI\\AlgoOrange.Web.UI\\Pages\\Stock\\StockDashboard.cshtml",
+              "RelativeToolTip": "AlgoOrange.Web.UI\\Pages\\Stock\\StockDashboard.cshtml",
+              "ViewState": "AgIAABIJAAAAAAAAAAAQwCMJAAB4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-03T06:50:32.983Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SocialDashboard.cshtml",
+              "DocumentMoniker": "C:\\Algo Orange\\AlgoOrange Web UI\\AlgoOrange.Web.UI\\AlgoOrange.Web.UI\\Pages\\SocialFeed\\SocialDashboard.cshtml",
+              "RelativeDocumentMoniker": "AlgoOrange.Web.UI\\Pages\\SocialFeed\\SocialDashboard.cshtml",
+              "ToolTip": "C:\\Algo Orange\\AlgoOrange Web UI\\AlgoOrange.Web.UI\\AlgoOrange.Web.UI\\Pages\\SocialFeed\\SocialDashboard.cshtml",
+              "RelativeToolTip": "AlgoOrange.Web.UI\\Pages\\SocialFeed\\SocialDashboard.cshtml",
+              "ViewState": "AgIAAJ8BAAAAAAAAAAAAALEBAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-03T06:49:25.029Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
