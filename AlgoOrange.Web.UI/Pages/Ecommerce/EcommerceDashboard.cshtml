@@ -4,7 +4,10 @@
         <div class="row g-4">
             <div class="col-12 col-xxl-6">
                 <div class="mb-8">
-                    <h2 class="mb-2">Ecommerce Dashboard</h2>
+                    <h2 class="mb-2">Ecommerce Dashboard
+                    <button class="btn btn-link p-0 text-body fs-6" type="button" id="ecom-ecom-button" data-bs-toggle="tooltip" data-bs-placement="top" title="Chatbot for Ecommerce">
+                                            <span class="fa-solid fa-info-circle"></span>
+                                        </button></h2>
                     <h5 class="text-body-tertiary fw-semibold">Here’s what’s going on at your business right now</h5>
                 </div>
                 <div class="row align-items-center g-4">
@@ -59,7 +62,10 @@
                             <div class="card-body">
                                 <div class="d-flex justify-content-between">
                                     <div>
-                                        <h5 class="mb-1">Total orders<span class="badge badge-phoenix badge-phoenix-warning rounded-pill fs-9 ms-2"><span class="badge-label">-6.8%</span></span></h5>
+                                        <h5 class="mb-1">Total orders<span class="badge badge-phoenix badge-phoenix-warning rounded-pill fs-9 ms-2"><span class="badge-label">-6.8%</span></span>
+                                         <button class="btn btn-link p-0 text-body fs-6" type="button" id="ecom-order-button" data-bs-toggle="tooltip" data-bs-placement="top" title="Chatbot for orders">
+                                            <span class="fa-solid fa-info-circle"></span>
+                                        </button></h5>
                                         <h6 class="text-body-tertiary">Last 7 days</h6>
                                     </div>
                                     <h4>16,247</h4>
@@ -87,7 +93,10 @@
                             <div class="card-body">
                                 <div class="d-flex justify-content-between">
                                     <div>
-                                        <h5 class="mb-1">New customers<span class="badge badge-phoenix badge-phoenix-warning rounded-pill fs-9 ms-2"> <span class="badge-label">+26.5%</span></span></h5>
+                                        <h5 class="mb-1">New customers<span class="badge badge-phoenix badge-phoenix-warning rounded-pill fs-9 ms-2"> <span class="badge-label">+26.5%</span></span>
+                                        <button class="btn btn-link p-0 text-body fs-6" type="button" id="ecom-customer-button" data-bs-toggle="tooltip" data-bs-placement="top" title="Chatbot for customers">
+                                            <span class="fa-solid fa-info-circle"></span>
+                                        </button></h5>
                                         <h6 class="text-body-tertiary">Last 7 days</h6>
                                     </div>
                                     <h4>356</h4>
@@ -103,7 +112,10 @@
                             <div class="card-body">
                                 <div class="d-flex justify-content-between">
                                     <div>
-                                        <h5 class="mb-2">Top coupons</h5>
+                                        <h5 class="mb-2">Top coupons
+                                        <button class="btn btn-link p-0 text-body fs-6" type="button" id="ecom-coupon-button" data-bs-toggle="tooltip" data-bs-placement="top" title="Chatbot for coupons">
+                                            <span class="fa-solid fa-info-circle"></span>
+                                        </button></h5>
                                         <h6 class="text-body-tertiary">Last 7 days</h6>
                                     </div>
                                 </div>
@@ -135,7 +147,10 @@
                             <div class="card-body d-flex flex-column">
                                 <div class="d-flex justify-content-between">
                                     <div>
-                                        <h5 class="mb-2">Paying vs non paying</h5>
+                                        <h5 class="mb-2">Paying vs non paying
+                                        <button class="btn btn-link p-0 text-body fs-6" type="button" id="ecom-payment-button" data-bs-toggle="tooltip" data-bs-placement="top" title="Chatbot for payment">
+                                            <span class="fa-solid fa-info-circle"></span>
+                                        </button></h5>
                                         <h6 class="text-body-tertiary">Last 7 days</h6>
                                     </div>
                                 </div>
@@ -1216,8 +1231,244 @@
         </div>
     </footer>
 </div>
+<!-- Floating Chatbox -->
+<div id="ecomm-chat-container" style="
+  display: none;
+  position: absolute;
+  top: 640px;
+  left: 620px;
+  width: 280px;
+  height: 350px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  box-shadow: 0px 5px 15px rgba(46, 46, 46, 0.2);
+  z-index: 9999;
+  flex-direction: column;
+  overflow: hidden;
+  font-family: sans-serif;
+">
+  <!-- Header -->
+  <div id="ecomm-chat-header" style="
+    background-color: rgb(38, 73, 233);
+    color: rgb(201, 247, 243);
+    padding: 10px;
+    font-weight: bold;
+    cursor: move;
+  ">
+    <img src="~/assets/img/icons/icon.png" alt="phoenix" width="25" />
+    <span id="ecomm-chat-title">Ask Algo</span>
+    <span style="float:right; cursor:pointer;" onclick="closeChat()">✖</span>
+  </div>
+
+  <!-- Messages -->
+  <div id="ecomm-chat-messages" style="flex: 1; padding: 10px; overflow-y: auto; height: 220px; background-color: #f9f9f9;"></div>
+
+  <!-- Input -->
+  <div style="padding: 10px; border-top: 1px solid #ddd;">
+    <input type="text" id="ecomm-chat-input" placeholder="Type a message..." style="width: 75%; padding: 5px; border-radius:10px">
+    <button onclick="EcommercechatbotsendMessage()" style="padding: 6px 10px; background:#eccdb3; color: white; border: none; border-radius: 10px;">Send</button>
+  </div>
+</div>
+
+
+<script>
+  let currentContext = "";
+
+  const contextApiMap = {
+  "ecommerce": "http://127.0.0.1:8000/chat/query",
+  "order": "http://127.0.0.1:8000/chat/issues",
+  "customer": "http://127.0.0.1:8000/chat/query",
+  "coupon": "http://127.0.0.1:8000/chat/query",
+  "payment": "http://127.0.0.1:8000/chat/query",
+  };
+
+function openChat(event, context) {
+  currentContext = context;
+
+  const chat = document.getElementById("ecomm-chat-container");
+  const chatTitle = document.getElementById("ecomm-chat-title");
+  const chatMessages = document.getElementById("ecomm-chat-messages");
+
+  // Set the chatbot title and welcome message
+  chatTitle.textContent = `Ask Algo (${context})`;
+  chatMessages.innerHTML = `<div class="welcome-message" style="text-align: center; color: #888;">Welcome to the ${context} chatbot!</div>`;
+
+// Temporarily make the chatbox visible to calculate its dimensions
+  chat.style.display = "block";
+  chat.style.opacity = "0"; // Keep it invisible 
+  // Get button position and screen dimensions
+  const buttonRect = event.target.getBoundingClientRect();
+  const chatWidth = chat.offsetWidth;
+  const chatHeight = chat.offsetHeight;
+  const screenWidth = window.innerWidth;
+  const screenHeight = window.innerHeight;
+
+  // Calculate default position
+  let top = buttonRect.bottom + window.scrollY + 10; // 10px offset below the button
+  let left = buttonRect.left + window.scrollX;
+
+  // Adjust position if the chatbot overflows the screen
+  if (left + chatWidth > screenWidth) {
+    left = screenWidth - chatWidth - 10; // Align to the right edge with a 10px margin
+  }
+  if (top + chatHeight > screenHeight) {
+    top = screenHeight - chatHeight - 10; // Align to the bottom edge with a 10px margin
+  }
+
+  // Apply the calculated position
+  chat.style.top = `${top}px`;
+  chat.style.left = `${left}px`;
+
+  // Show the chatbox with animation
+   // Make the chatbox visible with animation
+  chat.style.opacity = "1"; // Make it visible
+  chat.style.display = "flex";
+  setTimeout(() => {
+    chat.classList.add("active");
+  }, 10); // Add a slight delay to trigger the animation
+}
+
+function closeChat() {
+  const chat = document.getElementById("ecomm-chat-container");
+
+  // Hide the chatbox with animation
+  chat.classList.remove("active");
+  setTimeout(() => {
+    chat.style.display = "none";
+  }, 300); // Match the duration of the CSS transition
+}
+
+  async function EcommercechatbotsendMessage() {
+    const input = document.getElementById("ecomm-chat-input");
+    const msg = input.value.trim();
+    if (!msg || !currentContext) return;
+
+    const chatBody = document.getElementById("ecomm-chat-messages");
+
+    // Remove welcome message if it exists
+        const welcomeMessage = chatBody.querySelector(".welcome-message");
+        if (welcomeMessage) {
+        welcomeMessage.remove();
+        }
+
+    // Show user message                                           
+    const userDiv = document.createElement("div");
+    userDiv.style.textAlign = "right";
+    userDiv.innerHTML = `<div style="background:#f5f5f5; padding:5px 10px; border-radius:10px; margin:4px 0; display:inline-block;">${msg}</div>`;
+    chatBody.appendChild(userDiv);
+
+    input.value = "";
+
+    try {
+      const endpoint = contextApiMap[currentContext];
+      if (!endpoint) throw new Error("Invalid context");
+
+        const response = await fetch(`${endpoint}?userChatQuery=${encodeURIComponent(msg)}`, {
+        method: "GET",
+        headers: { "Content-Type": "application/json" },
+      });
+
+      const data = await response.json();
+      const botReply = data.response || "No response";
+
+      const botDiv = document.createElement("div");
+      botDiv.style.textAlign = "left";
+      botDiv.innerHTML = `<div style="background:#f9f9f9; padding:5px 10px; border-radius:10px; margin:4px 0; display:inline-block;">${botReply}</div>`;
+      chatBody.appendChild(botDiv);
+      chatBody.scrollTop = chatBody.scrollHeight;
+
+    } catch (error) {
+      console.error("Chat error:", error);
+      const errorDiv = document.createElement("div");
+      errorDiv.style.textAlign = "left";
+      errorDiv.innerHTML = `<div style="color:red; margin:4px 0;">Error: ${error.message}</div>`;
+      chatBody.appendChild(errorDiv);
+      chatBody.scrollTop = chatBody.scrollHeight;
+    }
+  }
+
+// Make chat draggable
+const chatContainer = document.getElementById("ecomm-chat-container");
+const chatHeader = document.getElementById("ecomm-chat-header");
+let offsetX = 0,
+  offsetY = 0,
+  isDragging = false;
+
+chatHeader.addEventListener("mousedown", function (e) {
+  isDragging = true;
+
+  // Disable transition for instant movement
+  chatContainer.classList.add("no-transition");
+
+  offsetX = e.clientX - chatContainer.offsetLeft;
+  offsetY = e.clientY - chatContainer.offsetTop;
+});
+
+document.addEventListener("mousemove", function (e) {
+  if (isDragging) {
+    chatContainer.style.left = `${e.clientX - offsetX}px`;
+    chatContainer.style.top = `${e.clientY - offsetY}px`;
+  }
+});
+
+document.addEventListener("mouseup", function () {
+  if (isDragging) {
+    isDragging = false;
+
+    // Re-enable transition after dragging
+    chatContainer.classList.remove("no-transition");
+  }
+});
+
+
+  // Button bindings
+  document.getElementById("ecom-ecom-button").addEventListener("click", function (e) {
+    openChat(e, "ecommerce");
+  });
+
+  document.getElementById("ecom-order-button").addEventListener("click", function (e) {
+    openChat(e, "order");
+  });
+
+  document.getElementById("ecom-customer-button").addEventListener("click", function (e) {
+    openChat(e, "customer");
+  });
+
+  document.getElementById("ecom-coupon-button").addEventListener("click", function (e) {
+    openChat(e, "coupon");
+  });
+  document.getElementById("ecom-payment-button").addEventListener("click", function (e) {
+    openChat(e, "payment");
+  });
+</script>
+
 <script>
     $(document).ready(function(){
         $('<script/>',{type:'text/javascript', src:'/assets/js/dashboards/ecommerce-dashboard.js'}).appendTo('head');
      });
 </script>
+<style>
+  /* Initial state for the popup */
+  #ecomm-chat-container {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.4s ease-in-out; /* Smooth animation for opacity and scale */
+  }
+
+  /* When the popup is active */
+  #ecomm-chat-container.active {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  /* Disable transition for position changes (instant movement) */
+  #ecomm-chat-container.no-transition {
+    transition: none; /* Disable transition for instant movement */
+  }
+
+  /* Close button hover effect */
+  #ecomm-chat-header span:hover {
+    color: #ff4d4d;
+  }
+</style>
