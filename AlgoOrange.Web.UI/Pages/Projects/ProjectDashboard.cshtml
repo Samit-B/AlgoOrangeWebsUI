@@ -550,7 +550,7 @@
 
   <!-- Input -->
   <div style="padding: 10px; border-top: 1px solid #ddd;">
-    <input type="text" id="chat-input" placeholder="Type a message..." style="width: 75%; padding: 5px; border-radius:10px">
+    <input type="text" id="project-chat-input" placeholder="Type a message..." style="width: 75%; padding: 5px; border-radius:10px">
     <button onclick="projectchatbotsendMessage()" style="padding: 6px 10px; background:#eccdb3; color: white; border: none; border-radius: 10px;">Send</button>
   </div>
 </div>
@@ -601,7 +601,7 @@ function closeChat() {
 }
 
   async function projectchatbotsendMessage() {
-    const input = document.getElementById("chat-input");
+    const input = document.getElementById("project-chat-input");
     const msg = input.value.trim();
     if (!msg || !currentContext) return;
 
